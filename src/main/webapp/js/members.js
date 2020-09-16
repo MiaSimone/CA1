@@ -15,14 +15,13 @@ function fetchAllPersons() {
     fetch(url)
         .then(res => res.json()) //in flow1, just do it
         .then(data => {
-            let newArray = data.map(x => `<tr><td>${x.name}</td><td>${x.studentId}</td><td>${x.favoriteColor}</td></tr>`)
-            allMembers.innerHTML =
-                `<table>
-                    <thead><th>Name</th><th>Student ID</th><th>Favorite Color</th></thead>
-                    ${newArray.join("")}
-                </table>`
+            let newArray = data.map(x => `<tr><td>${x.name}</td><td>${x.studentId}</td><td>${x.favoriteColor}</td></tr>`);
+            allMembers.innerHTML = newArray;
+   
         });
 }  
+
+
 
 
 

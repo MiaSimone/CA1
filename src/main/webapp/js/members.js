@@ -10,7 +10,7 @@ getAllMembersBtn.addEventListener('click', (event) => {
 // 3: Her fetches alle person fra api'et (som json) og laves til html:
 
 function fetchAllPersons() {
-    let url = 'http://localhost:8080/jpareststarter/api/members/all';
+    let url = 'https://miadefries.com/CA1/api/members/all';
     let allMembers = document.getElementById("membersTable");
     fetch(url)
         .then(res => res.json()) //in flow1, just do it

@@ -10,7 +10,7 @@ getAllJokesBtn.addEventListener('click', (event) => {
 });
 
 function fetchAllJokes() {
-    let url = 'http://localhost:8080/jpareststarter/api/joke/all';
+    let url = 'https://miadefries.com/CA1/api/joke/all';
     let allJokes = document.getElementById("allJokes");
     fetch(url)
         .then(res => res.json()) 
@@ -36,7 +36,7 @@ singleJokeInputBtn.addEventListener('click', (event) => {
 });
 
 function fetchSingleJoke(id) {
-    let url = 'http://localhost:8080/jpareststarter/api/joke/id/' + id;
+    let url = 'https://miadefries.com/CA1/api/joke/id/' + id;
     fetch(url)
         .then(res => res.json()) //in flow1, just do it
         .then(data => {
@@ -65,7 +65,7 @@ getRandomJokeBtn.addEventListener('click', (event) => {
 
 
 function fetchRandomJoke() {
-    let url = 'http://localhost:8080/jpareststarter/api/joke/random';
+    let url = 'https://miadefries.com/CA1/api/joke/random';
     let randomJoke = document.getElementById("tbody");
     fetch(url)
             .then(res => res.json())

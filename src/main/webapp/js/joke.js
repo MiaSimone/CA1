@@ -54,3 +54,23 @@ function fetchAllJokes() {
 }
 
 
+// -------------------------- RANDOM JOKE --------------------------------------
+
+let getRandomJokeBtn = document.getElementById("getRandomJokeBtn");
+
+getRandomJokeBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    fetchRandomJoke();
+});
+
+
+function fetchRandomJoke() {
+    let url = 'http://localhost:8080/jpareststarter/api/joke/random';
+    let randomJoke = document.getElementById("tbody");
+    fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                let randomJoke = document.getElementById("randomJoke");
+                randomJoke.innerHTML = renderObjectToHTML(data);
+    })
+}

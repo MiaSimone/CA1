@@ -6,12 +6,29 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Our cool jokes</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
     </head>
     <body>
-        <div>The “Our Cool Jokes” Page</div>
-        <h3>RASMUS</h3>
+        <form>
+        <input type="text" id="singleJokeTextInput" />
+        <button id="singleJokeInputBtn">Get Joke</button>
+        <button id="getAllJokesBtn">Get all</button>
+    </form>
+    <h1>A single joke</h1>
+    <p id="singleJoke">Single Joke</p>
+
+    <h1>All jokes</h1>
+    <p id="allJokes">All jokes</p>
+
+    
+    <table>
+        <tbody id="tbody"></tbody>
+    </table>
+    <script src="joke.js" async defer></script>
     </body>
 </html>

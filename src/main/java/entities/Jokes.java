@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entities;
 
 import java.io.Serializable;
@@ -11,31 +6,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- *
- * @author Rasmus
- */
+
 @Entity
-public class Joke implements Serializable {
+public class Jokes implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String theJoke;
     private String type;
     private String reference;
 
-    public Joke(String theJoke, String type, String reference) {
+    public Jokes() {
+    }
+
+    public Jokes(String theJoke, String type, String reference) {
         this.theJoke = theJoke;
         this.type = type;
         this.reference = reference;
     }
-
-    public Joke() {
-    }
-    
-    
 
     public Integer getId() {
         return id;
@@ -71,7 +61,10 @@ public class Joke implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.Joke[ id=" + id + " ]";
+        return "temp{" + "id=" + id + ", theJoke=" + theJoke + ", type=" + type + ", reference=" + reference + '}';
     }
     
+    
+    
+   
 }

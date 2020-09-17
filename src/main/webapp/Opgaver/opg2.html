@@ -6,29 +6,45 @@ and open the template in the editor.
 -->
 <html>
     <head>
-         <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Our cool jokes</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        
+        <title>Our cool jokes</title>
+        <!-- Bootstrap core CSS -->
+        <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../css/shop-homepage.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <script src="../js/joke.js" async defer></script>
     </head>
     <body>
         <form>
-        <input type="text" id="singleJokeTextInput" />
-        <button id="singleJokeInputBtn">Get Joke</button>
-        <button id="getAllJokesBtn">Get all</button>
-    </form>
-    <h1>A single joke</h1>
-    <p id="singleJoke">Single Joke</p>
+            <input type="text" id="singleJokeTextInput" />
+            <button id="singleJokeInputBtn">Get Joke</button>
+            <button id="getAllJokesBtn">Get all</button>
+        </form>
+        
+        <h1>A single joke</h1>
+        <p id="singleJoke">Single Joke</p>
 
-    <h1>All jokes</h1>
-    <p id="allJokes">All jokes</p>
+        <h1>All jokes</h1>
+        <table class="table mt-3">
+            <tbody id="allJokes"></tbody>
+        </table>
 
-    
-    <table>
-        <tbody id="tbody"></tbody>
-    </table>
-    <script src="joke.js" async defer></script>
+        
+
+
+        
+
     </body>
 </html>

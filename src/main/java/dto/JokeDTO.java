@@ -1,5 +1,5 @@
 package dto;
-import entities.Joke;
+import entities.Jokes;
 /**
  *
  * @author Rasmus
@@ -10,7 +10,7 @@ public class JokeDTO {
     private String reference;
     
     
-    public JokeDTO(Joke joke) {
+    public JokeDTO(Jokes joke) {
         this.theJoke = joke.getTheJoke();
         this.reference = joke.getReference();
         this.type = joke.getType();

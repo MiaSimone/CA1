@@ -17,7 +17,7 @@ getAllCarsBtn.addEventListener('click', (event) => {
 // 3: Her fetches alle biler fra api'et (som json) og laves til html:
 
 function fetchAllCars() {
-    let url = 'http://localhost:8080/jpareststarter/api/cars/all';
+    let url = 'https://miadefries.com/CA1/api/cars/all';
     let allCars = document.getElementById("carsTable");
     fetch(url)
             .then(res => res.json())

@@ -44,6 +44,7 @@ public class JokeFacadeTest {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
+            em.createNamedQuery("Jokes.deleteAllRows").executeUpdate();
             em.persist(new Jokes("whats the best thing about switzerland? I dont know but the flag is a big plus","short","switzerland"));
             em.persist(new Jokes("Why do we tell actors to break a leg? Because every play has a cast","short","Actors"));
             em.persist(new Jokes("What do you call it when a russian emperor mocks his people with irony? Tsarcasm","Irony","Russia"));

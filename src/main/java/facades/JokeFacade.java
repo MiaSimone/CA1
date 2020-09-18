@@ -36,16 +36,7 @@ public class JokeFacade {
     private EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    public long getJokeCount() {
-        EntityManager em = emf.createEntityManager();
-        try {
-            long jokeCount = (long) em.createQuery("SELECT COUNT(j) FROM Joke j").getSingleResult();
-            return jokeCount;
-        }
-        finally {
-            em.close();
-        }
-    }
+    
     
     public void populateDBJokes() {
         EntityManager em = emf.createEntityManager();

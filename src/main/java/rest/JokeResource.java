@@ -37,14 +37,7 @@ public class JokeResource {
         return "{\"msg\":\"6 rows added\"}";
     }
     
-    @Path("count")
-    @GET
-    @Produces({MediaType.APPLICATION_JSON})
-    public String getRenameMeCount() {
-        long count = FACADE.getJokeCount();
-        //System.out.println("--------------->"+count);
-        return "{\"count\":"+count+"}";  //Done manually so no need for a DTO
-    }
+    
     
     @Path("all")
     @GET

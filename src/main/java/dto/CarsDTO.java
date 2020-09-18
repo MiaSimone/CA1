@@ -65,7 +65,4 @@ public class CarsDTO {
         this.quantity = quantity;
     }
     
-    
-    
-    
 }

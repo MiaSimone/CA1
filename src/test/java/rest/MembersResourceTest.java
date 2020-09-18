@@ -4,6 +4,7 @@ import entities.Members;
 import utils.EMF_Creator;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
+import io.restassured.http.ContentType;
 import io.restassured.parsing.Parser;
 import java.net.URI;
 import javax.persistence.EntityManager;
@@ -14,6 +15,8 @@ import org.glassfish.grizzly.http.util.HttpStatus;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.is;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,11 +24,14 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 //Uncomment the line below, to temporarily disable this test
 //@Disabled
-public class RenameMeResourceTest {
+
+public class MembersResourceTest {
 
     private static final int SERVER_PORT = 7777;
     private static final String SERVER_URL = "http://localhost/api";
-    private static Members m1,m2;
+    
+    private static Members m1 = new Members("Mia de Fries", 291, "Blue");
+    private static Members m2 = new Members("Klaus Pedersen", 666, "Pink");
     
     static final URI BASE_URI = UriBuilder.fromUri(SERVER_URL).port(SERVER_PORT).build();
     private static HttpServer httpServer;
@@ -61,9 +67,8 @@ public class RenameMeResourceTest {
     //TODO -- Make sure to change the EntityClass used below to use YOUR OWN (renamed) Entity class
     @BeforeEach
     public void setUp() {
+        
         EntityManager em = emf.createEntityManager();
-        m1 = new Members("Mia de Fries", 291, "Blue");
-        m2 = new Members("Klaus Pedersen", 666, "Pink");
         try {
             em.getTransaction().begin();
             em.createNamedQuery("Members.deleteAllRows").executeUpdate();
@@ -73,21 +78,29 @@ public class RenameMeResourceTest {
         } finally { 
             em.close();
         }
+
     }
     
     @Test
     public void testServerIsUp() {
         System.out.println("Testing is server UP");
-        given().when().get("/members/all").then().statusCode(200);
+        given()
+        .when()
+        .get("/members/all")
+        .then()
+        .statusCode(200);
     }
-   
+    
     @Test
-    public void testCount() throws Exception {
+    public void testGetAllMembers() throws Exception {
+        System.out.println("Testing getting ALL MEMBERS");
         given()
         .contentType("application/json")
-        .get("/members/count").then()
+        .get("/members/all").then()
         .assertThat()
         .statusCode(HttpStatus.OK_200.getStatusCode())
-        .body("count", equalTo(2));   
+        .body("size()", is(2))
+        .and()
+        .body("name", hasItems("Mia de Fries", "Klaus Pedersen"));     
     }
 }
